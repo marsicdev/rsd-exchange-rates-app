@@ -3,4 +3,7 @@
 
 @interface AppDelegate : RCTAppDelegate
 
+@property(nonatomic, strong) NSPopover *popover;
+@property(nonatomic, strong) NSStatusItem *statusItem;
+
 @end

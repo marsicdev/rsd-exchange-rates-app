@@ -410,6 +410,10 @@
 				INFOPLIST_FILE = "NBSMenuBarApp-macos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(inherited)",
+					"-DFOLLY_NO_CONFIG",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -433,6 +437,10 @@
 				INFOPLIST_FILE = "NBSMenuBarApp-macos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(inherited)",
+					"-DFOLLY_NO_CONFIG",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

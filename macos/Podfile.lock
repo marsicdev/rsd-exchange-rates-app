@@ -387,6 +387,8 @@ PODS:
     - React-jsi (= 0.72.12)
     - React-logger (= 0.72.12)
     - React-perflogger (= 0.72.12)
+  - RNCClipboard (1.5.1):
+    - React-Core
   - SocketRocket (0.7.0)
   - Yoga (1.14.0)
 
@@ -429,6 +431,7 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native-macos/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native-macos/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native-macos/ReactCommon`)
+  - "RNCClipboard (from `../node_modules/@react-native-community/clipboard`)"
   - Yoga (from `../node_modules/react-native-macos/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -511,6 +514,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-macos/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native-macos/ReactCommon"
+  RNCClipboard:
+    :path: "../node_modules/@react-native-community/clipboard"
   Yoga:
     :path: "../node_modules/react-native-macos/ReactCommon/yoga"
 
@@ -553,6 +558,7 @@ SPEC CHECKSUMS:
   React-runtimescheduler: e26baec9132d9a85a257904e378d0a63b8b26d05
   React-utils: f1241058a1fa08735e7af55dee37230f849ad27d
   ReactCommon: 3cfbcac9c34b9779ae9ccc262122a78dfc607ddb
+  RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   Yoga: 5a5557fa1f32858eb391dfcc1afd0772966e6f5c
 

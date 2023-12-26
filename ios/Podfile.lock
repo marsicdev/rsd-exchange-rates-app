@@ -485,6 +485,8 @@ PODS:
     - React-jsi (= 0.72.8)
     - React-logger (= 0.72.8)
     - React-perflogger (= 0.72.8)
+  - RNCClipboard (1.5.1):
+    - React-Core
   - SocketRocket (0.6.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -553,6 +555,7 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCClipboard (from `../node_modules/@react-native-community/clipboard`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -650,6 +653,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCClipboard:
+    :path: "../node_modules/@react-native-community/clipboard"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -658,7 +663,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: df077ae30c8148bcfdc8f886450eb2eefb94a5be
-  FBReactNativeSpec: 66c4ae4e0331ec5e7928827341bddecc12b9dc7a
+  FBReactNativeSpec: ca2f1cd161c72659f294fadd27b1517cab6728fb
   Flipper: 6edb735e6c3e332975d1b17956bcc584eccf5818
   Flipper-Boost-iOSX: fd1e2b8cbef7e662a122412d7ac5f5bea715403c
   Flipper-DoubleConversion: 2dc99b02f658daf147069aad9dbd29d8feb06d30
@@ -699,11 +704,12 @@ SPEC CHECKSUMS:
   React-RCTSettings: 37d04a01ef8806ceeb281d7b90c85d8600a0642f
   React-RCTText: 9a811835f8888d34aa9377333ca5d33ea46b3006
   React-RCTVibration: 9f4d7f480b79141e1bb16ad76d46068e5ac4d378
-  React-rncore: de49617f51aabe28ac0ba886a77790e645bf929c
+  React-rncore: 3b6f48ed29e8abc04495386797164c30e870e561
   React-runtimeexecutor: 4e97887d9cf661def3ffdb0f48c41d4e2afb31d0
   React-runtimescheduler: 607a5832f8025dfe0d1178e78b447dd6d11bc012
   React-utils: 96f4588532614099a6d67a2b7c5912e1a35d6403
   ReactCommon: c111aa0c8006650d77a651e155f4112f97761dfd
+  RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 11d7931afb89721f39cf553a78767b81c7fbea1f
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a

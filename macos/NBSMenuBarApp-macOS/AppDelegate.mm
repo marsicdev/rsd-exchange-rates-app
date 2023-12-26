@@ -1,6 +1,7 @@
 #import "AppDelegate.h"
 
 #import <React/RCTBundleURLProvider.h>
+#import <React-RCTAppDelegate/RCTAppSetupUtils.h>
 
 @implementation AppDelegate
 
@@ -10,8 +11,52 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
+  
+  NSApplication *application = [notification object];
+  NSDictionary *launchOptions = [notification userInfo];
+  BOOL enableTM = NO;
+  
+  #if RCT_NEW_ARCH_ENABLED
+    enableTM = self.turboModuleEnabled;
+  #endif
+    RCTAppSetupPrepareApp(application, enableTM);
+  
+  if (!self.bridge) {
+    self.bridge = [self createBridgeWithDelegate:self launchOptions:launchOptions];
+  }
 
-  return [super applicationDidFinishLaunching:notification];
+  #if RCT_NEW_ARCH_ENABLED
+    self.bridgeAdapter = [[RCTSurfacePresenterBridgeAdapter alloc] initWithBridge:self.bridge
+                                                                 contextContainer:_contextContainer];
+    self.bridge.surfacePresenter = self.bridgeAdapter.surfacePresenter;
+    
+    [self unstable_registerLegacyComponents];
+  #endif
+    RCTPlatformView *rootView = [self createRootViewWithBridge:self.bridge moduleName:self.moduleName initProps:self.initialProps];
+    NSViewController *viewController = [[NSViewController alloc] init];
+    viewController.view = rootView;
+  
+  _popover = [[NSPopover alloc] init];
+  _popover.contentSize = NSMakeSize(400, 600);
+  _popover.contentViewController = viewController;
+  
+  if (@available(macOS 14.0, *)) {
+    _popover.hasFullSizeContent = YES;
+  }
+  _statusItem = [NSStatusBar.systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
+  
+  [_statusItem.button setTitle:@"Menubar app"];
+  [_statusItem.button setAction:@selector(toggleMenu:)];
+}
+
+- (void)toggleMenu:(NSMenuItem *)sender
+{
+  if (_popover.isShown) {
+    [_popover performClose:sender];
+  } else {
+    [_popover showRelativeToRect:_statusItem.button.bounds ofView:_statusItem.button preferredEdge:NSRectEdgeMinY];
+    [_popover.contentViewController.view.window becomeKeyWindow];
+  }
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
