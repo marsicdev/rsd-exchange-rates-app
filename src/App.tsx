@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react"
-import { Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, useColorScheme, View } from "react-native"
-import { FlatList } from "react-native-macos"
-
+import {
+    ActivityIndicator,
+    Image,
+    SafeAreaView,
+    StatusBar,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    useColorScheme,
+    View,
+    FlatList,
+} from "react-native"
 import { Colors } from "react-native/Libraries/NewAppScreen"
-import { fetchRates } from "./nbsService"
-import Clipboard from "@react-native-community/clipboard"
 import Toast from "react-native-toast-message"
+import Clipboard from "@react-native-community/clipboard"
 
-function App(): JSX.Element {
+import { fetchRates } from "./nbsService"
+
+const App = (): JSX.Element => {
     const [rates, setRates] = useState<any[]>([])
     const isDarkMode = useColorScheme() === "dark"
 
@@ -27,8 +37,8 @@ function App(): JSX.Element {
         Clipboard.setString(rate)
         Toast.show({
             type: "info",
-            text1: "Rate  copied to clipboard 👌",
-            text2: rate,
+            text1: `${rate}`,
+            text2: `Rate copied to clipboard 👌`,
             position: "bottom",
             visibilityTime: 2000,
         })
@@ -47,12 +57,17 @@ function App(): JSX.Element {
                     keyExtractor={(item) => item.code}
                     alwaysBounceVertical={false}
                     showsVerticalScrollIndicator={false}
+                    ListEmptyComponent={
+                        <View style={[styles.center]}>
+                            <ActivityIndicator size="large" color="#ff8C00" />
+                        </View>
+                    }
                     ListHeaderComponent={
                         <View style={styles.vStack}>
                             <Text style={{ paddingTop: 10, fontSize: 30, fontWeight: "900", color: titleColor }}>
-                                Exchange Rates
+                                RSD Exchange Rates
                             </Text>
-                            <Text style={{ color: titleColor }}>National Bank of Serbia Middle RSD Exchange Rate</Text>
+                            <Text style={{ color: "#888" }}>NBS Middle Exchange Rate for Serbian Dinar</Text>
                         </View>
                     }
                     renderItem={({ item }) => (
@@ -60,9 +75,7 @@ function App(): JSX.Element {
                             <Text>{item.country}</Text>
                             <View style={styles.hStack}>
                                 <View style={styles.hStack}>
-                                    <Text style={{ fontWeight: "900", fontSize: 30, color: titleColor }}>
-                                        {item.label.toUpperCase()}
-                                    </Text>
+                                    <Text style={{ fontWeight: "900", fontSize: 30 }}>{item.label.toUpperCase()}</Text>
                                     <Image
                                         style={{ width: 30, height: 20, borderRadius: 3, marginHorizontal: 10 }}
                                         source={{
@@ -77,6 +90,14 @@ function App(): JSX.Element {
                             <Text>{`${item.unit} ${item.label} = ${item.rate} RSD`}</Text>
                         </View>
                     )}
+                    ListFooterComponent={
+                        <View style={styles.vStack}>
+                            <Text style={{ color: "#888" }}>
+                                Last update: {new Date().toISOString().replace("T", " / ").replace("Z", "")}
+                            </Text>
+                            <Text style={{ color: "#888" }}>Source: National Bank Of Serbia</Text>
+                        </View>
+                    }
                 />
             </View>
             <Toast />
@@ -106,6 +127,8 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
     },
     center: {
+        width: "100%",
+        height: "100%",
         justifyContent: "center",
         alignItems: "center",
     },
@@ -113,7 +136,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 15,
         borderRadius: 5,
-        backgroundColor: "yellow",
+        backgroundColor: "#f9f9f9",
     },
     highlighted: {
         fontWeight: "700",
@@ -125,10 +148,17 @@ const styles = StyleSheet.create({
     },
     list: {
         width: "100%",
+        height: "100%",
     },
     card: {
-        // backgroundColor: "#161E25",
-        backgroundColor: "#ff8C00",
+        shadowColor: "#666",
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.5,
+        shadowRadius: 1,
+        elevation: 1,
+        backgroundColor: "#f39c12",
+        // borderWidth: 0.5,
+        // borderColor: "#fff",
         borderRadius: 5,
         padding: 20,
         width: "100%",
