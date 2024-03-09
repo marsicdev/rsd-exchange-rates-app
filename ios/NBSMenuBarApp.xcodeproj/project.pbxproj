@@ -489,7 +489,7 @@
 				DEVELOPMENT_TEAM = R7U833R2DU;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = NBSMenuBarApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "NBS Exchange Rate";
+				INFOPLIST_KEY_CFBundleDisplayName = "RSD Exchange Rate";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -501,7 +501,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.hypetech.app.nbs-rates.--PRODUCT-NAME-rfc1034identifier-";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.hypetech.app.nbs-rates";
 				PRODUCT_NAME = NBSMenuBarApp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -518,7 +518,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R7U833R2DU;
 				INFOPLIST_FILE = NBSMenuBarApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "NBS Exchange Rate";
+				INFOPLIST_KEY_CFBundleDisplayName = "RSD Exchange Rate";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -530,7 +530,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.hypetech.app.nbs-rates.--PRODUCT-NAME-rfc1034identifier-";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.hypetech.app.nbs-rates";
 				PRODUCT_NAME = NBSMenuBarApp;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

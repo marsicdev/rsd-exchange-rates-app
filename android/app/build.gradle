@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.nbsmenubarapp"
+    namespace "io.hypetech.app.rsd"
     defaultConfig {
-        applicationId "com.nbsmenubarapp"
+        applicationId "io.hypetech.app.rsd"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

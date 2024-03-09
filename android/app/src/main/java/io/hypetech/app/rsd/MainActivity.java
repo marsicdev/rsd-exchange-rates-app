@@ -1,4 +1,4 @@
-package com.nbsmenubarapp;
+package io.hypetech.app.rsd;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
